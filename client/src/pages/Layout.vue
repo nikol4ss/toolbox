@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed } from 'vue';
 
-import { RouterView, useRoute } from "vue-router";
+import { RouterView, useRoute } from 'vue-router';
 
-import AppSidebar from "@/components/layout/AppSidebar.vue";
+import AppSidebar from '@/components/layout/AppSidebar.vue';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,12 +11,12 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import Separator from "@/components/ui/separator/Separator.vue";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import SidebarTrigger from "@/components/ui/sidebar/SidebarTrigger.vue";
+} from '@/components/ui/breadcrumb';
+import Separator from '@/components/ui/separator/Separator.vue';
+import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
+import SidebarTrigger from '@/components/ui/sidebar/SidebarTrigger.vue';
 
-import ThemeToggle from "@/components/tooltip/ThemeToggle.vue";
+import ThemeToggle from '@/components/tooltip/ThemeToggle.vue';
 
 const route = useRoute();
 
@@ -34,18 +34,12 @@ const breadcrumbs = computed(() => {
       >
         <div class="flex items-center gap-2 px-4">
           <SidebarTrigger class="-ml-1" />
-          <Separator
-            orientation="vertical"
-            class="mr-2 data-[orientation=vertical]:h-4"
-          />
+          <Separator orientation="vertical" class="mr-2 data-[orientation=vertical]:h-4" />
           <Breadcrumb>
             <BreadcrumbList>
               <template v-for="(item, index) in breadcrumbs" :key="index">
                 <BreadcrumbItem>
-                  <BreadcrumbLink
-                    v-if="item.to && index < breadcrumbs.length - 1"
-                    :href="item.to"
-                  >
+                  <BreadcrumbLink v-if="item.to && index < breadcrumbs.length - 1" :href="item.to">
                     {{ item.label }}
                   </BreadcrumbLink>
 
@@ -60,9 +54,7 @@ const breadcrumbs = computed(() => {
           </Breadcrumb>
         </div>
 
-        <div
-          class="ml-auto flex items-center gap-1 rounded-lg mx-4 border bg-background/80"
-        >
+        <div class="ml-auto flex items-center gap-1 rounded-lg mx-4 border bg-background/80">
           <ThemeToggle />
         </div>
       </header>

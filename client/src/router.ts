@@ -3,21 +3,21 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "/",
-    redirect: "/dashboard",
+    redirect: "/panel",
   },
   {
-    path: "/dashboard",
+    path: "/panel",
     component: () => import("@/pages/Layout.vue"),
     meta: {
       requiresAuth: true,
-      breadcrumb: [{ label: "Dashboard", to: "/dashboard" }],
-      title: "Toolbox - Dashboard",
+      breadcrumb: [{ label: "Painel", to: "/panel" }],
+      title: "Toolbox - Painel",
     },
     children: [
       {
-        path: "", // rota filha vazia
-        name: "dashboard", // nome único
-        component: () => import("@/pages/Dashboard.vue"),
+        path: "",
+        name: "Panel",
+        component: () => import("@/pages/Panel.vue"),
       },
     ],
   },
